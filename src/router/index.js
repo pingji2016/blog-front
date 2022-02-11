@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import UserMana from '@/components/UserMana'
+import CateMana from '@/components/CateMana'
 
 Vue.use(Router)
 
@@ -29,13 +30,16 @@ export default new Router({
           component: UserMana
         }
       ]
-    }, {
+    },  {
       path: '/home',
+      component: Home,
+      name: '栏目管理',
       children: [
         {
           path: '/cateMana',
           iconCls: 'fa fa-reorder',
           name: '栏目管理',
+          component: CateMana
         }
       ]
     }]
