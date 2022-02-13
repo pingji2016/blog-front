@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-import UserMana from '@/components/UserMana'
-import CateMana from '@/components/CateMana'
+import Home from '@/components/Home'
 import ArticleList from '@/components/ArticleList'
-import BlogDetail from '@/components/BlogDetail'
+import CateMana from '@/components/CateMana'
+import DataCharts from '@/components/DataCharts'
 import PostArticle from '@/components/PostArticle'
+import UserMana from '@/components/UserMana'
+import BlogDetail from '@/components/BlogDetail'
 
 Vue.use(Router)
 
@@ -71,17 +73,31 @@ export default new Router({
           component: UserMana
         }
       ]
-    },  {
+    }, {
       path: '/home',
       component: Home,
-      name: '专栏管理',
+      name: '栏目管理',
       children: [
         {
           path: '/cateMana',
           iconCls: 'fa fa-reorder',
-          name: '专栏管理',
+          name: '栏目管理',
           component: CateMana
         }
       ]
-    }]
+    }, {
+      path: '/home',
+      component: Home,
+      name: '数据统计',
+      iconCls: 'fa fa-bar-chart',
+      children: [
+        {
+          path: '/charts',
+          iconCls: 'fa fa-bar-chart',
+          name: '数据统计',
+          component: DataCharts
+        }
+      ]
+    }
+  ]
 })
